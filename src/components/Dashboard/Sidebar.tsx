@@ -1,6 +1,9 @@
-import { Home, Newspaper, Handshake, Briefcase, Settings, User } from "lucide-react";
+import { Home, Newspaper, Handshake, Briefcase, Settings, User, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 interface SidebarProps {
   activeSection: string;
@@ -17,6 +20,12 @@ const navigationItems = [
 ];
 
 export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    toast.success("Logged out successfully!");
+    navigate("/login");
+  };
   return (
     <div className="w-64 bg-card border-r border-border h-screen flex flex-col">
       <div className="p-6 border-b border-border">
@@ -52,6 +61,17 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
           })}
         </ul>
       </nav>
+      
+      <div className="p-4 border-t border-border">
+        <Button 
+          onClick={handleLogout}
+          variant="ghost" 
+          className="w-full justify-start text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+        >
+          <LogOut size={20} className="mr-3" />
+          Logout
+        </Button>
+      </div>
     </div>
   );
 };

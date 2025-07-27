@@ -4,6 +4,8 @@ import { Overview } from "./Overview";
 import { News } from "./News";
 import { Partnerships } from "./Partnerships";
 import { Services } from "./Services";
+import { Profile } from "./Profile";
+import { Settings } from "./Settings";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("overview");
@@ -19,19 +21,9 @@ const Dashboard = () => {
       case "services":
         return <Services />;
       case "profile":
-        return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-card-foreground">Profile</h2>
-            <p className="text-muted-foreground">Profile management coming soon...</p>
-          </div>
-        );
+        return <Profile />;
       case "settings":
-        return (
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-card-foreground">Settings</h2>
-            <p className="text-muted-foreground">Settings panel coming soon...</p>
-          </div>
-        );
+        return <Settings />;
       default:
         return <Overview />;
     }
