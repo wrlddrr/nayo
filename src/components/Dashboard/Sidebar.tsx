@@ -1,5 +1,6 @@
 import { Home, Newspaper, Handshake, Briefcase, Settings, User } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface SidebarProps {
   activeSection: string;
@@ -19,8 +20,13 @@ export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
   return (
     <div className="w-64 bg-card border-r border-border h-screen flex flex-col">
       <div className="p-6 border-b border-border">
-        <h1 className="text-xl font-bold text-card-foreground">FreelanceHub</h1>
-        <p className="text-sm text-muted-foreground">Professional Dashboard</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-xl font-bold text-card-foreground">FreelanceHub</h1>
+            <p className="text-sm text-muted-foreground">Professional Dashboard</p>
+          </div>
+          <ThemeToggle />
+        </div>
       </div>
       
       <nav className="flex-1 p-4">
